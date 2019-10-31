@@ -11,7 +11,7 @@ def run
   html = open("https://www.imdb.com/")
   doc = Nokogiri::HTML(html)
   movies = []
-  doc.css("div.rhs-row").each do |mov|
+  doc.css("div.rhs-body")[0].css("div.rhs-row").each do |mov|
     title = mov.css(".title").text.strip
     movies << title
   end
